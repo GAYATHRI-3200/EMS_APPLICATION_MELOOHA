@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Sorted Employee List</h1>
+  {% if employees %}
+  <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <a href="{% url 'sort_employee_list' 'name' %}">
+              Name {% if sort_by == 'name' %}
+                {% if sort_order == 'asc' %}
+                  <i class="fas fa-sort-up"></i>
+                {% else %}
+                  <i class="fas fa-sort-down"></i>
+                {% endif %}
+              {% endif %}
+            </a>
+          </th>
+          <th>
+            <a href="{% url 'sort_employee_list' 'age' %}">
+              Age {% if sort_by == 'age' %}
+                {% if sort_order == 'asc' %}
+                  <i class="fas fa-sort-up"></i>
+                {% else %}
+                  <i class="fas fa-sort-down"></i>
+                {% endif %}
+              {% endif %}
+            </a>
+          </th>
+          <th>
+            <a href="{% url 'sort_employee_list' 'position' %}">
+              Position {% if sort_by == 'position' %}
+                {% if sort_order == 'asc' %}
+                  <i class="fas fa-sort-up"></i>
+                {% else %}
+                  <i class="fas fa-sort-down"></i>
+                {% endif %}
+              {% endif %}
+            </a>
+          </th>
+          <th>
+            <a href="{% url 'sort_employee_list' 'salary' %}">
+              Salary {% if sort_by == 'salary' %}
+                {% if sort_order == 'asc' %}
+                  <i class="fas fa-sort-up"></i>
+                {% else %}
+                  <i class="fas fa-sort-down"></i>
+                {% endif %}
+              {% endif %}
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.salary }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4">No employees found!</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No employees found!</p>
+  {% endif %}
+{% endblock %}

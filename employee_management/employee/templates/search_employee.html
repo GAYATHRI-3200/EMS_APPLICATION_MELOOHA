@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Search Results</h1>
+  {% if employees %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Position</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.salary }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4">No employees found!</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No employees found!</p>
+  {% endif %}
+{% endblock %}
