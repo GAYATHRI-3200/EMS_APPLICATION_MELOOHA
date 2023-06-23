@@ -1,5 +1,14 @@
 # EMS_APPLICATION_MELOOHA
 
+Employee Database Management System - CURD OPERATION
+
+1. Add new employee
+2. Update employee information
+3. Delete employee
+4. View employee list
+5. Search employee
+6. Sort employee list
+
 
 cmds
 
